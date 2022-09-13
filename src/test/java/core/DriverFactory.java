@@ -1,6 +1,5 @@
-package steps;
+package core;
 
-import cucumber.api.java.Before;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -9,7 +8,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Hooks {
+public class DriverFactory {
+
     private static AppiumDriver<?> driver;
     public static String plataforma = "";
 
@@ -80,12 +80,4 @@ public class Hooks {
         }
     }
 
-    @Before
-    public static void iniciarProjeto() throws MalformedURLException {
-        if (getDriver() != null) {
-            getDriver().launchApp();
-        }else {
-            validarDriver();
-        }
-    }
 }
